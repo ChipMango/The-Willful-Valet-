@@ -20,6 +20,15 @@ module valet_loop_tb;
       // 💡 Inject your per-cycle logic here
       automatic bit trigger_event = (cycle % 5 == 0);  // every 5 cycles
 
+      if (cycle == 117) begin
+        $display("👤 Shadow Trace: Mercer has entered the lot.");
+        // Future logic will inject chaos here
+      end
+
+      logic mercer_active;
+      assign mercer_active = (cycle >= 117);
+
+
       if (trigger_event) begin
         Car c = new();
         c.plate_id = cycle + 100;
