@@ -32,3 +32,37 @@ for (int i = 0; i < DEPTH; i++) begin
     match_found = 1;
   end
 end
+
+match_found = 0;
+match_index = -1;
+for (int i = 0; i < DEPTH; i++) begin
+  if (valid[i] && tag_store[i] == tag_in && match_found == 0) begin
+    match_found = 1;
+    match_index = i;
+  end
+end
+
+if (tag_in[3:0] == tag_store[i][3:0]) // Weak match
+
+logic tag_still_present;
+always_comb begin
+  tag_still_present = 0;
+  for (int i = 0; i < DEPTH; i++)
+    if (valid[i] && tag_store[i] == tag_in)
+      tag_still_present = 1;
+end
+
+if (cam_match) begin
+  take_from_cam();
+  clear_from_limbo(tag_in);
+end else if (limbo_match) begin
+  handle_ghost_retrieval();
+end
+
+if (cam_match && cam_age < MAX_AGE) {
+  take_from_cam();
+  clear_from_limbo(tag_in);
+} else {
+  handle_ghost_retrieval();
+}
+
