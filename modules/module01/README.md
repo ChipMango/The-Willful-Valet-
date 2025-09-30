@@ -1,6 +1,0 @@
-- LIFO Strength: Simple, fast, perfect for bursty input
-- FIFO Insight: Predictable, stable—but slow under pressure
-- CAM Surprise: Most lucrative but hardest to debug
-- Personal Preference: [Write yours here]
-- Design Challenge: [E.g., tracking multi-match in CAM]
-- Strategy for Module 2: [How you’ll use them together]

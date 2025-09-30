@@ -1,0 +1,7 @@
+## My Simulation Identity: [Nova_Byte / Lightning_Lola / etc.]
+
+### Summary
+- Best-performing lot: CAM (highest average tip)
+- Hardest to debug: FIFO cooldown timing
+- Favorite design moment: When LIFO popped exactly as expected under stall
+- Goal for Module 2: Use FIFO as base lot, CAM as interrupt-driven VIP handler
