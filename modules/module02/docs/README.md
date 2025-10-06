@@ -25,3 +25,32 @@
 - How long will your system wait before dropping or rerouting a request?
 - How do you log timing-related decisions?
 - How do your cooldowns interact with Mercer interference or Limbo logic?
+
+## Mercer Interference – Section 2.5
+
+- How does your FSM detect that a car has been stolen?
+- How do you log and respond to such interference?
+- What scoring penalty do you apply?
+- Would you escalate or isolate lots that have frequent interference?
+
+## Scoring Engine – Section 2.6
+
+- What are your base parking and retrieval values?
+- How do you scale tips based on performance or queue choice?
+- How are timeouts, stalls, and interference handled financially?
+- What optimizations did you discover during scoring test runs?
+
+## Logging System – Section 2.7
+
+- What kinds of events are logged and how often?
+- What signals did you probe for waveform visibility?
+- What files are generated? What do they each contain?
+- Did you implement debug verbosity modes or filters?
+
+## Section 2.8 – Integration Test
+
+- What did your first full-system sim reveal about your design?
+- Were there unexpected bugs during parking/retrieval?
+- How well did your FSM handle Mercer and cooldown delays?
+- How did you validate final score accuracy?
+- What would you improve in a second run?
