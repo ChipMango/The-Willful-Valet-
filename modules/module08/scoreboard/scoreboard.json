@@ -1,0 +1,13 @@
+{
+  "total_clients": 208,
+  "vip_clients": 52,
+  "tips_earned": 472,
+  "drops": 14,
+  "stalls": 11,
+  "avg_retrieval_latency": 5.2,
+  "vip_recovery_rate": 94,
+  "mercer_interactions": 63,
+  "resilience_score": -8,
+  "final_score": 410,
+  "score_per_sim_second": 1.37
+}
