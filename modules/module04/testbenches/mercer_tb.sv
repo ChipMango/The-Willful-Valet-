@@ -40,3 +40,18 @@ task automatic inject_mercer_event();
     // ... insert event logic here ...
   end
 endtask
+
+typedef struct {
+  logic [15:0] tag;
+  logic [2:0] origin_queue;
+  logic [31:0] insert_cycle;
+  logic [31:0] last_seen_cycle;
+  logic valid;
+} tag_trace_entry_t;
+
+resilience_score = 
+  (stall_recovery_rate * 0.25) +
+  (tag_survivability_rate * 0.25) +
+  ((1.0 - fail_recovery_ratio) * 0.20) +
+  (log_accuracy * 0.15) +
+  (score_penalty_recovery * 0.15);

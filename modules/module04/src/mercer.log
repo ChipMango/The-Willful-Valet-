@@ -1,0 +1,9 @@
+$display("[Cycle %0d] [MERCER-EVENT] Type: %s | Tag: 0x%h | Queue: %s | FSM State: %s", 
+          cycle_count, event_type, tag, queue_name, fsm_state);
+
+$strobe("**WAVE-MARKER** MercerHit @ %0t", $time);
+
+integer log_fd;
+initial log_fd = $fopen("mercer_intrusion.log", "w");
+
+$fdisplay(log_fd, "MERCER EVENT LOG – Entropy Seed: %0h", entropy_seed);
