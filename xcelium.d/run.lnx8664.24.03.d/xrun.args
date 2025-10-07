@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+./modules/module02/src/timer.sv
+./modules/module02/testbenches/timer_tb.sv
