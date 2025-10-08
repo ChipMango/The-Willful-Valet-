@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module timer #(parameter int LIMIT = 100)(
+module timer #(parameter int DURATION = 100)(
     input logic clk, rst_n, enable,
     output logic done
 );
