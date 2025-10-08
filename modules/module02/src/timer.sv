@@ -4,7 +4,7 @@ module timer #(parameter int DURATION = 100)(
     input logic clk, rst_n, enable,
     output logic done
 );
-    logic [LIMIT:0] count;
+    logic [DURATION:0] count;
 
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n)
@@ -15,5 +15,5 @@ module timer #(parameter int DURATION = 100)(
             count <= 0;
     end
 
-    assign done = (count == LIMIT);
+    assign done = (count == DURATION);
 endmodule
