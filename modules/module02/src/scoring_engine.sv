@@ -1,3 +1,4 @@
+/* FROM STUDY GUIDE
 module scoring_engine #(
   parameter DEBUG_LEVEL = 2; // 0 = off, 1 = events only, 2 = full trace
 
@@ -60,4 +61,42 @@ module valet_score_tracker (
         end
     end
 
+endmodule
+*/
+
+`timescale 1ns/1ps
+
+module scoring_engine(
+    input logic clk,
+    input logic rst_n,
+    input logic signed[7:0] tip_delta,
+    input logic tip_event_valid,
+    output logic signed [15:0] running_score
+);
+
+    //cycle counter for logs
+    logic [31:0] cycle_count;
+
+    //count cycles for timestamping
+    always_ff @(posedge clk or negedge rst_n) begin
+        if(!rst_n)
+            cycle_count <= 0;
+        else
+            cycle_count <= cycle_count + 1;
+    end
+
+    //scoring register
+    always_ff @(posedge clk or negedge rst_n) begin
+        if(!rst_n)
+            running_score <= 0;
+        else if (tip_event_valid)
+            running_score <= running_score + tip_delta;
+    end
+
+    //log outputs to console
+    always_ff @(posedge clk) begin
+        if(tip_event_valid) begin
+            $display("[Cycle %0d] %+0d tip event. Total Score: %0d", cycle_count, tip_delta, running_score + tip_delta);
+        end
+    end
 endmodule
